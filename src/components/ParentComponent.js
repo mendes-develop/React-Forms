@@ -3,8 +3,8 @@ import From from './Form'
 
 export default class ParentComponent extends Component {
     state = {
-        firstName: "John",
-        lastName: "Henry",
+        firstName: "Joseph",
+        lastName: "Mills",
         submittedData: []
       }
 
