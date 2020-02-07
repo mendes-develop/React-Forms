@@ -1,29 +1,30 @@
 import React from 'react';
 
 class Form extends React.Component {
-  state = {
-    firstName: "John",
-    lastName: "Henry"
-  }
-
-  handleFirstNameChange = event => {
-    this.setState({
-      firstName: event.target.value
-    })
-  }
-
-  handleLastNameChange = event => {
-    this.setState({
-      lastName: event.target.value
-    })
-  }
+  
 
   render() {
+
+    const { data, handleSubmit, handleChange, listOfSubmissions} = this.props
+    // console.log(this.props)
     return (
-      <form>
-        <input type="text" name="firstName" onChange={event => this.handleFirstNameChange(event)} value={this.state.firstName} />
-        <input type="text" name="lastName" onChange={event => this.handleLastNameChange(event)} value={this.state.lastName} />
-      </form>
+      <div>
+
+        <form onSubmit={event => handleSubmit(event)} >
+          <input 
+            type="text" 
+            name="firstName" 
+            onChange={event => handleChange(event)} 
+            value={data.firstName} />
+          <input 
+            type="text" 
+            name="lastName" 
+            onChange={event => handleChange(event)} 
+            value={data.lastName} />
+          <input type="submit"/>
+          </form>
+          {listOfSubmissions()}
+      </div>
     )
   }
 }
